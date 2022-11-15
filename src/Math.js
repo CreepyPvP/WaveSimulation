@@ -3,7 +3,10 @@ const integrate = function(f, from, to) {
     let sum = 0;
 
     for(let i = from; i < to; i += delta) {
-        sum += f(i) * delta;
+        const r = f(i);
+        if(!r) continue;
+
+        sum += r * delta;
     }
 
     return sum;

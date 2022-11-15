@@ -2,4 +2,4 @@
 const pixelSize = 10;
 const pixelSpacing = 16;
 
-const width = 110;
+const width = 100;

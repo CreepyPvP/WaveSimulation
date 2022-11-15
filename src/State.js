@@ -1,15 +1,18 @@
 const c = 20;
 const elements = 10;
 
-const f = x => x**2;
+const f = x => 2*x;
 
 const waves = [];
 
 for(let i = -elements; i <= elements; i++) {
-    const a = integrate(x => f(x) / Math.sin(i * Math.pi * 2 / width * x), 0, width) / width;
+    const a = integrate(x => f(x) / Math.sin(i * Math.PI * 2 / width * x), 0, width) / width;
 
+    // console.log(a);
     waves.push(Wave(i, a, Math.random()));
 }
+
+console.log(integrate(x => (f(x) / Math.sin(0)), 0, width))
 
 currentState = State(
     (x, t) => {
@@ -20,5 +23,5 @@ currentState = State(
     },
     0,
     c,
-    0
+    1
 )
