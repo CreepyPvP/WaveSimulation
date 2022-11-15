@@ -9,47 +9,33 @@ const initializeRenderer = function() {
 }
 
 
-const waves = [
-   //Wave(5,100,100)
-];
+let currentState = null;
 
-const totalAmp = 200;
-for(let i = 1; i <= 6; i++) {
-    waves.push(Wave(i, Math.random() * totalAmp / i, Math.random() * totalAmp / i))
+const drawPixel = function(x, t, ctx) {
+    const offset = currentState.solution(x, t);
+
+    ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset, pixelSize, pixelSize);
 }
 
-let drawPixel = function(x, y, t, ctx) {
-    const offset = vec2(0,0);
-    waves.forEach(wave => {
-        const waveOff = waveEqu(x, y, t, wave);
-        offset.x += waveOff.x;
-        offset.y += waveOff.y;
-    })
-
-    ctx.fillRect((x+1) * pixelSpacing + offset.x, (y + 30) * pixelSpacing + offset.y, pixelSize, pixelSize);
-}
-
-let clear = function (ctx) {
+const clear = function (ctx) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-let render = function (ctx, t) {
+const render = function (ctx) {
     clear(ctx);
 
-    for(let x = 0; x < width+1; x++) {
-        for(let y = 0; y < height; y++) {
-            drawPixel(x, y, t / 60, ctx);
+    if(currentState !== null) {
+        for(let x = 0; x < width+1; x++) {
+            drawPixel(x, currentState.t / 60, ctx);
         }
+
+        currentState.t += 1/60 * currentState.simulationSpeed;
     }
-    requestAnimationFrame(() => render(ctx, t+1));
+    requestAnimationFrame(() => render(ctx));
 }
 
-let waveEqu = function(x, y, t, wave) {
+const waveEquation = function(x, t, wave) {
     const n = wave.n;
 
-    const strength = Math.sin(n * Math.PI / width * x) * (wave.c * Math.cos(n * Math.PI * c * t / width) + wave.d * Math.sin(n * Math.PI * c * t / width))
-    return vec2(
-        0,
-        strength
-    );
+    return Math.sin(n * Math.PI / width * x) * (wave.c * Math.cos(n * Math.PI * c * t / width) + wave.d * Math.sin(n * Math.PI * c * t / width))
 }

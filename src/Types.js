@@ -11,3 +11,12 @@ const Wave = function(n, c, d) {
         d
     }
 }
+
+
+const State = function(solution, t, simulationSpeed) {
+    return {
+        solution,
+        t,
+        simulationSpeed
+    }
+}
