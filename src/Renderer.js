@@ -33,9 +33,3 @@ const render = function (ctx) {
     }
     requestAnimationFrame(() => render(ctx));
 }
-
-const waveEquation = function(x, t, wave) {
-    const n = wave.n;
-
-    return Math.sin(n * Math.PI / width * x) * (wave.c * Math.cos(n * Math.PI * c * t / width) + wave.d * Math.sin(n * Math.PI * c * t / width))
-}

@@ -4,19 +4,20 @@ const vec2 = function (x, y) {
     }
 }
 
-const Wave = function(n, c, d) {
+const Wave = function(n, a, d) {
     return {
         n,
-        c,
+        a,
         d
     }
 }
 
 
-const State = function(solution, t, simulationSpeed) {
+const State = function(solution, t, c, simulationSpeed) {
     return {
         solution,
         t,
+        c,
         simulationSpeed
     }
 }
