@@ -1,5 +1,5 @@
 const integrate = function(f, from, to) {
-    const delta = 0.001;
+    const delta = 0.0005;
     let sum = 0;
 
     for(let i = from; i < to; i += delta) {

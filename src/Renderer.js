@@ -14,7 +14,7 @@ let currentState = null;
 const drawPixel = function(x, t, ctx) {
     const offset = currentState.solution(x / scaleX, t);
 
-    ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset, pixelSize, pixelSize);
+    ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset * scaleY, pixelSize, pixelSize);
 }
 
 const clear = function (ctx) {
