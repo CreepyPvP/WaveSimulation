@@ -1,5 +1,5 @@
 const c = 20;
-const elements = 20;
+const elements = 100;
 
 const n = 10;
 const f = x =>  n / Math.sqrt(Math.PI) * (Math.E ** -((n * (x - 0.5)) ** 2));
@@ -26,5 +26,5 @@ currentState = State(
     },
     0,
     c,
-    0.01
+    0.04
 )
