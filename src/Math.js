@@ -1,10 +1,10 @@
 const integrate = function(f, from, to) {
-    const delta = 0.001;
+    const delta = 0.0001;
     let sum = 0;
 
     for(let i = from; i < to; i += delta) {
         const r = f(i);
-        if(!r) continue;
+        if(!r || r === Infinity || r === -Infinity) continue;
 
         sum += r * delta;
     }
@@ -16,5 +16,5 @@ const integrate = function(f, from, to) {
 const waveEquation = function(x, t, c, wave) {
     const n = wave.n;
 
-    return wave.a * Math.sin(2 * n * Math.PI / width * x) * (Math.cos(n * Math.PI * c * t / width) + wave.d * Math.sin(n * Math.PI * c * t / width))
+    return wave.a * Math.sin(2 * n * Math.PI / l * x) * (Math.cos(n * Math.PI * c * t / l) + wave.d * Math.sin(n * Math.PI * c * t / l))
 }

@@ -12,7 +12,7 @@ const initializeRenderer = function() {
 let currentState = null;
 
 const drawPixel = function(x, t, ctx) {
-    const offset = currentState.solution(x, t);
+    const offset = currentState.solution(x / scaleX, t);
 
     ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset, pixelSize, pixelSize);
 }
@@ -26,7 +26,7 @@ const render = function (ctx) {
 
     if(currentState !== null) {
         for(let x = 0; x < width+1; x++) {
-            drawPixel(x, currentState.t / 60, ctx);
+            drawPixel(x, currentState.t, ctx);
         }
 
         currentState.t += 1/60 * currentState.simulationSpeed;
