@@ -1,0 +1,68 @@
+#sim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+.panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    border-left: 1px rgba(0, 0, 0, 0.3) solid;
+
+    background: white;
+}
+
+
+.state-wrapper {
+    width: 200px;
+    overflow: hidden;
+    list-style: none;
+
+    padding: 0px;
+
+    transition: width 1s;
+}
+
+.panel.closed .state-wrapper {
+    width: 0px;
+}
+
+.state {
+    border-top: 1px rgba(0, 0, 0, 0.3) solid;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition: background-color 600ms;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
+    padding: 12px;
+
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+
+.state:hover {
+    background-color: rgba(17, 92, 179, 0.3);
+}
+
+.state:last-child {
+    border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+.state.active {
+    background-color: rgba(17, 60, 179, 0.5);
+}

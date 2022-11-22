@@ -17,7 +17,7 @@ for(let i = 1; i <= elements; i++) {
 
 // console.log(integrate(x => (f(x) / Math.sin(0)), 0, width))
 
-currentState = State(
+const WaveState = State(
     (x, t) => {
         const offsets = waves.map(wave => waveEquation(x, t, c, wave));
         let offset = 0;
