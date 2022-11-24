@@ -9,9 +9,7 @@ const waves = [];
 // console.log(f(0.5), integrate(x => f(x) * Math.sin(3*x), 0, 2*Math.PI) / l)
 
 for(let i = 1; i <= elements; i++) {
-    const a = integrate(x => f(x) * Math.sin(2 * i * Math.PI / l * x), 0, l) / l;
-
-    console.log(a);
+    const a = integrate(x => f(x) * Math.sin(2 * i * Math.PI / l * x), 0, 2*l) / l;
     waves.push(Wave(i, a, Math.random()));
 }
 
@@ -25,6 +23,5 @@ const WaveState = State(
         return offset;
     },
     0,
-    c,
-    0.04
+    0.02
 )

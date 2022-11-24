@@ -1,6 +1,6 @@
 const stateMap = {
     "state-1": WaveState,
-    "state-2": State(() => 0, 0, 1, 0),
+    "state-2": heatState,
     "state-3": State(() => 0, 0, 1, 0)
 }
 

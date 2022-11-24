@@ -1,10 +1,10 @@
-const vec2 = function (x, y) {
+const vec2 = (x, y) => {
     return {
         x, y
     }
 }
 
-const Wave = function(n, a, d) {
+const Wave = (n, a, d) => {
     return {
         n,
         a,
@@ -13,11 +13,20 @@ const Wave = function(n, a, d) {
 }
 
 
-const State = function(solution, t, c, simulationSpeed) {
+const Heat = (n, a, amplitude) => {
+    return {
+        n,
+        a,
+        amplitude
+    }
+}
+
+
+
+const State = function(solution, t, simulationSpeed) {
     return {
         solution,
         t,
-        c,
         simulationSpeed
     }
 }
