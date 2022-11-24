@@ -10,3 +10,6 @@ const scaleY = 100;
 
 
 const l = width / scaleX;
+
+
+const globals = {};
