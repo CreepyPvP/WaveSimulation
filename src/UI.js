@@ -1,8 +1,9 @@
 {
     const stateMap = {
-        "state-1": globals.waveState,
-        "state-2": globals.heatState,
-        "state-3": State(() => 0, 0, 1, 0)
+        "state-1": globals.wave.fourier(globals.wave.doubleWave(2, 0.2, 7), 100, 0.15, 1),
+        "state-2": globals.diffusion.fourier(globals.diffusion.singleHeatSource(3, 7), 100, 0.001, 1),
+        "state-3": globals.diffusion.fourier(globals.diffusion.binary(5), 100, 0.05, 1),
+        "state-4": globals.wave.fourier(globals.diffusion.binary(1), 100, 0.15, 1)
     }
     
     
