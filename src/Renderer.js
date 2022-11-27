@@ -15,8 +15,11 @@
     const drawPixel = (x, t, ctx) => {
         const offset = globals.currentState.solution(x / scaleX, t);
     
-        ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset * scaleY, pixelSize, pixelSize);
-    }
+        if(globals.currentState.longitudinal)
+            ctx.fillRect((x+1) * pixelSpacing + offset * scaleX, 30 * pixelSpacing, pixelSize, pixelSize);
+        else
+            ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset * scaleY, pixelSize, pixelSize);
+    }   
     
     const clear = (ctx) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);

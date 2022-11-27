@@ -23,10 +23,15 @@ const Heat = (n, a, amplitude) => {
 
 
 
-const State = function(solution, t, simulationSpeed) {
+const State = (solution, t, simulationSpeed) => {
     return {
         solution,
         t,
         simulationSpeed
     }
+}
+
+const toLongitudinal = state => {
+    state.longitudinal = true;
+    return state;
 }

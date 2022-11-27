@@ -5,7 +5,7 @@
     }
 
     const doubleHeatSource = (pos0, pos1, n) =>  {
-        return x => singleWave(pos0, n)(x) + singleWave(pos1, n)(x);
+        return x => singleHeatSource(pos0, n)(x) + singleHeatSource(pos1, n)(x);
     }
 
     const binary = (amplitude) => {

@@ -29,5 +29,31 @@
         )
     }
 
-    globals.wave = {fourier: fourierWaveState, singleWave, doubleWave};
+
+    const simpleWaveState = (c, n, a, speed = 1) => {
+        const wave = Wave(n, a, Math.random());
+        return State(
+            (x, t) => {
+                return globals.math.waveEquation(x, t, c, wave)
+            },
+            0,
+            speed
+        )
+    }
+    
+    
+    const combineWaveState = (waves, c, speed = 1) => {
+        return State(
+            (x, t) => {
+                const offsets = waves.map(wave => globals.math.waveEquation(x, t, c, wave));
+                let offset = 0;
+                offsets.forEach(off => offset += off);
+                return offset;
+            },
+            0,
+            speed
+        )
+    }
+
+    globals.wave = {fourier: fourierWaveState, singleWave, doubleWave, simple: simpleWaveState, combine: combineWaveState};
 }
