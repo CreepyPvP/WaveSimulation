@@ -11,6 +11,9 @@
     
     
     globals.currentState = null;
+
+    let lastFrame = Date.now();
+
     
     const drawPixel = (x, t, ctx) => {
         const offset = globals.currentState.solution(x / scaleX, t);
@@ -33,7 +36,9 @@
                 drawPixel(x, globals.currentState.t, ctx);
             }
         
-            globals.currentState.t += 1/60 * globals.currentState.simulationSpeed;
+            const currentFrame = Date.now();
+            globals.currentState.t += (currentFrame - lastFrame) / 1000;
+            lastFrame = currentFrame;
         }
         requestAnimationFrame(() => render(ctx));
     }
