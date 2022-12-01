@@ -37,7 +37,7 @@
             }
         
             const currentFrame = Date.now();
-            globals.currentState.t += (currentFrame - lastFrame) / 1000;
+            globals.currentState.t += (currentFrame - lastFrame) / 1000 * globals.currentState.simulationSpeed;
             lastFrame = currentFrame;
         }
         requestAnimationFrame(() => render(ctx));
