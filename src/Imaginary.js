@@ -42,6 +42,20 @@
         return of(real * Math.cos(exponent.imaginary), real * Math.sin(exponent.imaginary))
     }
 
-    console.log(exp(of(Math.E), of(0, 2*Math.PI)))
+
+    const len = (a) => Math.sqrt(a.real ** 2 + a.imaginary ** 2);
+
+
+    const expE = (b) => {
+        const real = Math.E ** b.real;
+        return of(real * Math.cos(b.imaginary), real * Math.sin(b.imaginary))
+    }
+
+    
+    const expI = (b) => {
+        return of(Math.cos(b), Math.sin(b))
+    }
+
+    globals.imaginary = {of, add, mul, expE, expI, len}
 
 }

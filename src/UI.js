@@ -1,9 +1,11 @@
 {
     const waveState = globals.wave.combine([Wave(2, 2, Math.random()), Wave(3, 1, Math.random())], 1)
+    const observerState = globals.observer.at(waveState, 1, 20, 0.3);
 
     const stateMap = {
         "state-1": waveState,
-        "state-2": globals.observer.at(waveState, 1, 20, 0.3)
+        "state-2": observerState,
+        "state-3": globals.fourierState.of(observerState),
     }
     
     

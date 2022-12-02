@@ -21,7 +21,7 @@
         if(globals.currentState.longitudinal)
             ctx.fillRect((x+1) * pixelSpacing + offset * scaleX, 30 * pixelSpacing, pixelSize, pixelSize);
         else
-            ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing + offset * scaleY, pixelSize, pixelSize);
+            ctx.fillRect((x+1) * pixelSpacing, 30 * pixelSpacing - offset * scaleY, pixelSize, pixelSize);
     }   
     
     const clear = (ctx) => {
