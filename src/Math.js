@@ -25,5 +25,8 @@
     }
 
 
-    globals.math = {integrate, waveEquation, diffusionEquation};
+    const log = (x, base = 10) => Math.log(base) / Math.log(x);
+
+
+    globals.math = {integrate, waveEquation, diffusionEquation, log};
 }
