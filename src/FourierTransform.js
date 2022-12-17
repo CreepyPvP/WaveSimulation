@@ -2,11 +2,12 @@
     
     const dft = (arr) => {
         const output = [];
+        const N = arr.length;
 
-        for(let i = 0; i < arr.length; i++) {
+        for(let i = 0; i < N; i++) {
             let sum = globals.imaginary.of(0,0);
-            for(let j = 0; j < arr.length; j++) {
-                const component = globals.imaginary.mul(globals.imaginary.of(arr[j], 0), globals.imaginary.expI(-2 * Math.PI / arr.length * j * i));
+            for(let j = 0; j < N; j++) {
+                const component = globals.imaginary.mul(globals.imaginary.of(arr[j], 0), globals.imaginary.expI(-2 * Math.PI / N * j * i));
                 sum = globals.imaginary.add(sum, component);
             }
             output[i] = sum;
